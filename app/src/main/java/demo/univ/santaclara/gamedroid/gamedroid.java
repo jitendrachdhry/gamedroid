@@ -1,9 +1,11 @@
 package demo.univ.santaclara.gamedroid;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -11,7 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 public class gamedroid extends Activity implements View.OnClickListener {
     final int STARTUP_STATE = 0;
@@ -155,42 +157,7 @@ public class gamedroid extends Activity implements View.OnClickListener {
                 Log.v("GameDroid", "R.layout.gamestartdisplay @@@@@@@@ onClick");
             } else if (view == (Button) findViewById(R.id.startgame)) {
                 Log.v("GameDroid", "onClick @@@@@@@@ StartGameImageButton");
-                application_state = PLAY_STATE;
-                setContentView(R.layout.gamestartdisplay);
-                ((ImageButton) findViewById(R.id.ImageButton01)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton02)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton03)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton04)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton05)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton06)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton07)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton08)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton09)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton010)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton011)).setOnClickListener(this);
-                ((ImageButton) findViewById(R.id.ImageButton012)).setOnClickListener(this);
-                ((Button) findViewById(R.id.tryagain)).setOnClickListener(this);
-                //	        ((Button)findViewById(R.id.pickagain)).setEnabled(false);
-                selected = false;
-                bmatch = false;
-                selectIndex = score = selectImg = 0;
-                mStartTime = System.currentTimeMillis();
-                arrindex = (int) (mStartTime % 10);
-                Log.v("GameDroid", "StartGameImageButton() arrindex : " + arrindex);
-                mHandler.removeCallbacks(mUpdateTimeTask);
-                mHandler.postDelayed(mUpdateTimeTask, 100);
-                bitem[0] = false;
-                bitem[1] = false;
-                bitem[2] = false;
-                bitem[3] = false;
-                bitem[4] = false;
-                bitem[5] = false;
-                bitem[6] = false;
-                bitem[7] = false;
-                bitem[8] = false;
-                bitem[9] = false;
-                bitem[10] = false;
-                bitem[11] = false;
+                showAlertDialog(view);
             } else if (view == (Button) findViewById(R.id.exitgame)) {
                 this.finish();
             } else if (view == (Button) findViewById(R.id.about)) {
@@ -680,5 +647,59 @@ public class gamedroid extends Activity implements View.OnClickListener {
                 }
             }
         }
+    }
+
+    public void showAlertDialog(View view) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Instructions \nClick to reveal the cards and form pairs.\n\nComplete the task with as few moves as possible to score high marks.");
+        alertDialogBuilder.setPositiveButton("START",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        startTheGame();
+                        Toast.makeText(gamedroid.this, "!!! YOUR GAME START NOW !!!\n All the best.", Toast.LENGTH_LONG).show();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    void startTheGame() {
+        application_state = PLAY_STATE;
+        setContentView(R.layout.gamestartdisplay);
+        ((ImageButton) findViewById(R.id.ImageButton01)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton02)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton03)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton04)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton05)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton06)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton07)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton08)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton09)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton010)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton011)).setOnClickListener(this);
+        ((ImageButton) findViewById(R.id.ImageButton012)).setOnClickListener(this);
+        ((Button) findViewById(R.id.tryagain)).setOnClickListener(this);
+        //	        ((Button)findViewById(R.id.pickagain)).setEnabled(false);
+        selected = false;
+        bmatch = false;
+        selectIndex = score = selectImg = 0;
+        mStartTime = System.currentTimeMillis();
+        arrindex = (int) (mStartTime % 10);
+        Log.v("GameDroid", "StartGameImageButton() arrindex : " + arrindex);
+        mHandler.removeCallbacks(mUpdateTimeTask);
+        mHandler.postDelayed(mUpdateTimeTask, 100);
+        bitem[0] = false;
+        bitem[1] = false;
+        bitem[2] = false;
+        bitem[3] = false;
+        bitem[4] = false;
+        bitem[5] = false;
+        bitem[6] = false;
+        bitem[7] = false;
+        bitem[8] = false;
+        bitem[9] = false;
+        bitem[10] = false;
+        bitem[11] = false;
     }
 }
