@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="TableLayout01" type="id">false</item>
+    <item name="ImageButton01" type="id">false</item>
+    <item name="ImageButton02" type="id">false</item>
+    <item name="ImageButton03" type="id">false</item>
+    <item name="ImageButton04" type="id">false</item>
+    <item name="ImageButton05" type="id">false</item>
+    <item name="ImageButton06" type="id">false</item>
+    <item name="ImageButton07" type="id">false</item>
+    <item name="ImageButton08" type="id">false</item>
+    <item name="ImageButton09" type="id">false</item>
+    <item name="ImageButton010" type="id">false</item>
+    <item name="ImageButton011" type="id">false</item>
+    <item name="ImageButton012" type="id">false</item>
+    <item name="score" type="id">false</item>
+    <item name="time" type="id">false</item>
+    <item name="scorenumber" type="id">false</item>
+    <item name="timecount" type="id">false</item>
+    <item name="tryagain" type="id">false</item>
+    <item name="startgame" type="id">false</item>
+    <item name="exitgame" type="id">false</item>
+    <item name="help" type="id">false</item>
+    <item name="about" type="id">false</item>
+</resources>
