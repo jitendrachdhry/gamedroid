@@ -79,8 +79,6 @@ public class gamedroid extends Activity implements View.OnClickListener {
             }
 
             mHandler.postDelayed(mUpdateTimeTask, 1000);
-
-//    	       mHandler.postAtTime(this, start + (((minutes * 60) + seconds + 1) * 1000));
         }
     };
 
@@ -97,46 +95,6 @@ public class gamedroid extends Activity implements View.OnClickListener {
         ((Button) findViewById(R.id.startgame)).setOnClickListener(this);
         ((Button) findViewById(R.id.exitgame)).setOnClickListener(this);
         ((Button) findViewById(R.id.about)).setOnClickListener(this);
-
-
-        /*new Button.OnClickListener() {
-            public void onClick(View v) {
-				Log.v("GameDroid", "onClick @@@@@@@@ ");
-					((ImageButton)findViewById(R.id.ImageButton01)).setImageResource(R.drawable.img6);
-				//setBackgroundResource(findViewById(R.drawable.img6);
-			//	applyFormat();
-			}
-		});
-		*/
-        /*
-        ImageButton ibBtn2 = (ImageButton)findViewById(R.id.ImageButton02);
-        ibBtn2.setOnTouchListener(new View.OnTouchListener() {
-
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				Log.v("GameDroid", "onTouch @@@@@@@@ ");
-				// TODO Auto-generated method stub
-				if (event.getAction() == MotionEvent.ACTION_DOWN ) {
-
-                    return true;
-                }
-
-				return false;
-			}
-		});
-		*/
-//        ((ImageButton)findViewById(R.id.ImageButton01)).setOnClickListener(this);
-        //      ((ImageButton)findViewById(R.id.ImageButton02)).setOnClickListener(this);
-
-
-/*
-//        Create an AdWhirlLayout. Make sure that this code is called in the main thread.
-        LinearLayout ll = new LinearLayout(this);
-        com.adwhirl.AdWhirlLayout adWhirlLayout = new com.adwhirl.AdWhirlLayout(this, "AdWhirl SDK Key");
-    	RelativeLayout.LayoutParams adWhirlLayoutParams = new RelativeLayout.LayoutParams(320, 52);
-//    	R.layout.addView(adWhirlLayout, adWhirlLayoutParams);
-    	ll.addView(adWhirlLayout, adWhirlLayoutParams);
-*/
     }
 
     public void onPause() {
@@ -233,36 +191,6 @@ public class gamedroid extends Activity implements View.OnClickListener {
                 bitem[9] = false;
                 bitem[10] = false;
                 bitem[11] = false;
-
-		 /*
-    //	        LinearLayout layout  = (LinearLayout) findViewById (R.layout.gamestartdisplay);
-	//	        ((LinearLayout)view).addView(mChronometer);
-
-	//	        Context context = this.getApplicationContext();
-
-		        LayoutInflater inflater = ((Activity) this.getApplicationContext()).getLayoutInflater();
-		        view = inflater.inflate(R.layout.gamestartdisplay, null);
-
-		        int stoppedMilliseconds = 0;
-
-		        String chronoText = mChronometer.getText().toString();
-		        String array[] = chronoText.split(":");
-		        if (array.length == 2) {
-		          stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 1000
-		              + Integer.parseInt(array[1]) * 1000;
-		        } else if (array.length == 3) {
-		          stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000
-		              + Integer.parseInt(array[1]) * 60 * 1000
-		              + Integer.parseInt(array[2]) * 1000;
-		        }
-
-		        mChronometer = new Chronometer(this);
-		        Log.v("GameDroid", "mChronometer created @@@@@@@@ ");
-		        mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
-		        Log.v("GameDroid", "mChronometer setBase() @@@@@@@@ ");
-		        mChronometer.start();
-		        Log.v("GameDroid", "mChronometer start() @@@@@@@@ ");
-	*/
             } else if (view == (Button) findViewById(R.id.exitgame)) {
                 this.finish();
             } else if (view == (Button) findViewById(R.id.about)) {
